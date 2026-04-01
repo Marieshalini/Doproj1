@@ -1,6 +1,5 @@
 package com.example.demo;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +14,6 @@ public class student {
     @GetMapping("/greet")
     @ResponseBody
     public String greetUser(@RequestParam String name) {
-        return "Hello, " + name + "!";
+        return "Hello " + name;
     }
 }
