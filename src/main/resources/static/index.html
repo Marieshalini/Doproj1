@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>
+            Greeting
+        </title>
+    </head>
+    <body>
+        Enter Name<input type="text" id="nam">
+        <button onclick="addName()">CLick here</button>
+        <p id="name"></p>
+    </body>
+    <script>
+        function addName(){
+           let name= document.getElementById("nam").value;
+           document.getElementById("name").innerText="Hello" + name;
+        }
+    </script>
+
+</html>
