@@ -1,24 +1,20 @@
 package com.example.demo;
 
+
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import java.util.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
+@Controller
+public class student {
 
-@RestController
-@RequestMapping("/greet")
-
-public class student{
-
-
-    @PostMapping("/add")
-    public String addName(@RequestBody String entity) {
-        
-        return "Hello" + entity;
+    @GetMapping("/")
+    public String home() {
+        return "index"; 
     }
-    
-}
 
+    @GetMapping("/greet")
+    @ResponseBody
+    public String greetUser(@RequestParam String name) {
+        return "Hello, " + name + "!";
+    }
+}

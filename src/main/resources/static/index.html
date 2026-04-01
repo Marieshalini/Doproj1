@@ -1,19 +1,50 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Greeting
-        </title>
-    </head>
-    <body>
-        Enter Name<input type="text" id="nam">
-        <button onclick="addName()">CLick here</button>
-        <p id="name"></p>
-    </body>
+<head>
+    <title>Greeting App</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #f0f8ff;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: blue;
+            color: white;
+            border: none;
+        }
+        h2 {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>User Greeting App</h1>
+
+    <input type="text" id="name" placeholder="Enter your name">
+    <button onclick="greet()">Greet Me</button>
+
+    <h2 id="result"></h2>
+
     <script>
-        function addName(){
-           let name= document.getElementById("nam").value;
-           document.getElementById("name").innerText="Hello" + name;
+        function greet() {
+            let name = document.getElementById("name").value;
+
+            fetch("/greet?name=" + name)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("result").innerText = data;
+                });
         }
     </script>
 
+</body>
 </html>
